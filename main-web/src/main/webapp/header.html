@@ -1,0 +1,19 @@
+<header id="header">
+    <a class="menu_trigger" href="#">menu</a>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html" id="index-html" >Home</a></li>
+            <li><a href="login.html" id="login-html">Login</a></li>
+            <li><a href="myskills.html" id="myskills-html">My skills</a></li>
+            <li><a href="portfolio.html" id="portfolio-html">Portfolio</a></li>
+            <li><a href="contact.html" id="contact-html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1 class="logo">Life Imitation </h1>
+    <h2 class="slogan">Feel like a god</h2>
+</header>
+<script>
+    $(function () {
+        $("#" + window.location.pathname.substring(1).replace(".","-")).addClass("active")
+    });
+</script>

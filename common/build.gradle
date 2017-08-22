@@ -1,0 +1,19 @@
+group 'org.demosoft.web'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+    compile group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    compile group: 'io.vavr', name: 'vavr', version: vavrVersion
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: apacheCommonsVersion
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

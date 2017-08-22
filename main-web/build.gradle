@@ -1,0 +1,25 @@
+group 'org.demosoft.web'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':common-web')
+    compile project(':common-auth')
+    compile project(':auth-web')
+}
+
+springBoot {
+    mainClass = 'org.demosoft.life.web.Launcher'
+}
+bootRun {
+    systemProperties System.properties
+    main = 'org.demosoft.life.web.Launcher'
+}

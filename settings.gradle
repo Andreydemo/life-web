@@ -1,0 +1,8 @@
+rootProject.name = 'life'
+include 'common'
+include 'main-web'
+include 'auth-web'
+include 'common-web'
+include 'auth'
+include 'common-auth'
+

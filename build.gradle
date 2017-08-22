@@ -1,0 +1,87 @@
+group 'org.demosoft.web'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+sourceCompatibility = 1.8
+
+buildscript {
+    project.ext {
+        springBootVersion = '1.5.6.RELEASE'
+        cargoPluginVersion = '2.2.3'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: springBootVersion
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    project.ext {
+        springVersion = '4.2.3.RELEASE'
+        googleGuava = '22.0'
+        lombokVersion = '1.16.18'
+        jacksonVersion = '2.9.0'
+        vavrVersion = '0.9.0'
+        apacheCommonsVersion = '3.6'
+        apacheIoVersion = '2.5'
+        springfoxSwaggerVersion = '2.5.0'
+        thymeleafExtrasJava8timeVersion = '3.0.0.RELEASE'
+        thymeleafVersion = '3.0.7.RELEASE'
+        thymeleafLayoutDialectVersion = '2.2.2'
+        thymeleafExtrasSpringSecurityVersion = '3.0.2.RELEASE'
+        thymeleafSpring4Version = '3.0.7.RELEASE'
+        mapstructVersion = '1.1.0.Final'
+        hazelcastVersion = '3.8.3'
+        h2Version = '1.4.196'
+        tomcat7Version = '7.0.79'
+        tomcat8Version = '8.5.19'
+        tomcat8Log4jVersion = '8.5.2'
+        jaxbVersion = '2.2.11'
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency group: 'org.thymeleaf', name: 'thymeleaf', version: thymeleafVersion
+            dependency group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: thymeleafLayoutDialectVersion
+            dependency group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: thymeleafExtrasSpringSecurityVersion
+            dependency group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: thymeleafSpring4Version
+            dependency group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: thymeleafExtrasJava8timeVersion
+            dependency group: 'com.hazelcast', name: 'hazelcast', version: hazelcastVersion
+            dependency group: 'com.hazelcast', name: 'hazelcast-spring', version: hazelcastVersion
+            dependency group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: tomcat7Version
+            dependency group: 'org.apache.tomcat.embed', name: 'tomcat-embed-el', version: tomcat7Version
+            dependency group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: tomcat7Version
+            dependency group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: tomcat7Version
+            dependency group: 'org.apache.tomcat.embed', name: 'tomcat-embed-logging-log4j', version: tomcat7Version
+        }
+    }
+    bootRepackage.enabled = false
+
+    springBoot {
+        mainClass = 'org.demosoft.life.web.Launcher'
+    }
+    bootRun {
+        systemProperties System.properties
+        main = 'org.demosoft.life.web.Launcher'
+    }
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
+}
